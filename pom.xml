@@ -12,6 +12,7 @@
     <modules>
         <module>eurekaclienttest</module>
         <module>eurekaserver</module>
+        <module>gateway</module>
     </modules>
 
 
@@ -89,10 +90,10 @@
 
     <!--公共依赖-->
     <dependencies>
-        <!--注册中心-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.10.Final</version>
         </dependency>
         <!--配置中心-->
         <dependency>
