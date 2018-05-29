@@ -1,0 +1,12 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: eureka-client-test
+eureka:
+  client:
+    serviceUrl:
+     defaultZone: http://localhost:8001/eureka/
+  instance:
+    hostname: eureka-client-test
+    prefer-ip-address: true
