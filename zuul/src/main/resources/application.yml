@@ -1,0 +1,23 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: zuul
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    hostname: zuul
+    prefer-ip-address: true #在注册中心不显示ip的地址前缀
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+
+
+ #表示只要访问以/testZuul/开头的多层目录都可以路由到 id为eureka-client-test的服务上
+
+zuul:
+  routes:
+    eureka-client-test: /testZuul/**

@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8005
 spring:
   application:
     name: eureka-client-test
@@ -7,7 +7,7 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}
     hostname: eureka-client-test
-#    prefer-ip-address: true #在注册中心不显示ip的地址前缀
+    prefer-ip-address: true #在注册中心不显示ip的地址前缀
   client:
     service-url:
       defaultZone: http://localhost:8001/eureka/

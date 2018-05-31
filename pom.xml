@@ -10,9 +10,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>eurekaclienttest2</module>
         <module>eurekaclienttest</module>
         <module>eurekaserver</module>
         <module>gateway</module>
+        <module>zuul</module>
     </modules>
 
 
@@ -90,6 +92,11 @@
 
     <!--公共依赖-->
     <dependencies>
+        <!--注册中心-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
