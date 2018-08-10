@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: hwj-cif
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      uri: springconfig地址
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+    bus:
+      enabled: true
+
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: 开发地址
+
+---
+spring:
+  profiles: prd
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: 生产地址

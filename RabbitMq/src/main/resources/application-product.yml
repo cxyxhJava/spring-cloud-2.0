@@ -1,0 +1,14 @@
+rabbitmq:
+  host: localhsot:8080
+  port: 5673
+  username: scort
+  password: tiger
+  virtual-host: /
+
+
+
+
+
+
+
+

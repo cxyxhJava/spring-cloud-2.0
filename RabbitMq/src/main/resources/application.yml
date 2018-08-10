@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: rabbit-mq
+  profiles:
+    active: ${package.environment}
+eureka:
+  instance:
+    hostname: rabbit-mq
+    prefer-ip-address: true
+    appname: rabbit-mq
+
+server:
+  port: 1001
+
+
+
+
+
+
+
