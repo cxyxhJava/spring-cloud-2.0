@@ -2,11 +2,8 @@ package com.frank.config.server;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,18 +13,31 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @EnableConfigServer
-@EnableDiscoveryClient
-//@SpringBootApplication
-@EnableAutoConfiguration
-@Configuration
+@SpringBootApplication
 public class ConfigServerApplication {
-    @Value("${spring.application.name}")
-    private String serverName;
+//    @Value("${spring.application.name}")
+//    private String serverName;
+//
+//
+//    @RequestMapping("/health")
+//    public String health() {
+//        return "Hello It is "+serverName;
+//    }
+
 
     @RequestMapping("/")
     public String home() {
-        return "Hello It is "+serverName;
+        return "Hello It is ";
     }
+
+//    @Value("${test}")
+//    private String test;
+//
+//    @RequestMapping("/test")
+//    public String home2() {
+//        return "Hello It is "+test;
+//    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(ConfigServerApplication.class, args);

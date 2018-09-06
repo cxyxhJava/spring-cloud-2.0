@@ -2,22 +2,192 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>springCloudDemo</artifactId>
-        <groupId>com.frank</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<modelVersion>4.0.0</modelVersion>
+<artifactId>${name}</artifactId>
+<groupId>com.frank</groupId>
+<name>${name}</name>
+<version>${frank.version}</version>
+<packaging>jar</packaging>
 
-    <artifactId>config-server</artifactId>
+<repositories>
+    <repository>
+        <id>spring-milestones</id>
+        <name>Spring Milestones</name>
+        <url>https://repo.spring.io/libs-milestone</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+    <repository>
+        <id>public</id>
+        <name>Public Repositories</name>
+        <url>http://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+        <id>oss</id>
+        <name>oss</name>
+        <url>https://oss.sonatype.org/content/groups/public</url>
+    </repository>
+    <repository>
+        <id>sonatype-nexus-snapshots</id>
+        <name>Sonatype Nexus Snapshots</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+</repositories>
 
+<dependencyManagement>
     <dependencies>
-        <!--配置中心服务-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
         </dependency>
     </dependencies>
+</dependencyManagement>
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.0.RELEASE</version>
+</parent>
+<properties>
+    <name>config-server</name>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <frank.version>0.0.1-SNAPSHOT</frank.version>
+    <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+    <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
+</properties>
+
+<!--公共依赖-->
+<dependencies>
+
+    <!--配置中心服务-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-config-server</artifactId>
+    </dependency>
+</dependencies>
+
+
+<profiles>
+    <profile>
+        <id>dev</id><!-- 开发环境 -->
+        <properties>
+            <package.environment>dev</package.environment>
+        </properties>
+        <activation>
+            <!--默认激活  默认打包为dev-->
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+    <profile>
+        <id>qa</id><!-- 测试环境 -->
+        <properties>
+            <package.environment>qa</package.environment>
+        </properties>
+    </profile>
+    <profile>
+        <id>uat</id><!-- 预生产环境 -->
+        <properties>
+            <package.environment>uat</package.environment>
+        </properties>
+    </profile>
+    <profile>
+        <id>product</id><!-- 生产环境 -->
+        <properties>
+            <package.environment>product</package.environment>
+        </properties>
+    </profile>
+</profiles>
+
+<build>
+    <!--配置不同环境下读取不同的配置文件-->
+    <!--dev:开发  qa:测试  uat:预发  product:生产  public:所有环境公用  -->
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <excludes>
+                <exclude>dev/*</exclude>
+                <exclude>qa/*</exclude>
+                <exclude>uat/*</exclude>
+                <exclude>product/*</exclude>
+            </excludes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>${package.environment}/*</include>
+            </includes>
+        </resource>
+    </resources>
+
+    <finalName>${name}</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <skipTests>true</skipTests>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+                <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                <finalName>${name}</finalName>
+            </configuration>
+        </plugin>
+    </plugins>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+</build>
 
 
 </project>

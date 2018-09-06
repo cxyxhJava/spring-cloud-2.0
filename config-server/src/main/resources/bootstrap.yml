@@ -1,37 +1,21 @@
+server:
+  port: 9001
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
 spring:
   application:
     name: ${name}
-encrypt:
-  failOnError: false
-  keyStore:
-    location: classpath:keystore.jks
-    password: ${KEYSTORE_PASSWORD:foobar} # don't use a default in production
-    alias: test
+  profiles:
+    active: ${package.environment}
 
-
-#server:
-#  port: 9001
-#
-#spring:
-#  application:
-#    name: ${name}
-#  profiles:
-#    active: ${package.environment}
-#  cloud:
-#    config:
-#      server:
-#        git:
-#          uri: https://github.com/franyang/spring-could-config
-#          username: franyang
-#          password: tigerQAZ2
-#         # default-label: ${spring.profiles.active}   #解决监控down
-#
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#    lease-renewal-interval-in-seconds: 5
-#    lease-expiration-duration-in-seconds: 20
-#  client:
-#    serviceUrl:
-#      defaultZone: http://admin:123456@eureka.local.ci.qianhaishuliang.com:8761/eureka
-#    registry-fetch-interval-seconds: 10
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/franyang/spring-could-config.git
+          username: franyang
+          password: tigerQAZ2
