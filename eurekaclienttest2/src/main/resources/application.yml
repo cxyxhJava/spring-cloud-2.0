@@ -1,5 +1,5 @@
 server:
-  port: 8005
+  port: 9003
 spring:
   application:
     name: eureka-client-test
@@ -10,4 +10,4 @@ eureka:
     prefer-ip-address: true #在注册中心不显示ip的地址前缀
   client:
     service-url:
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://eureka-server:8001/eureka/,http://eureka-server2:8002/eureka/,http://eureka-server3:8003/eureka/
