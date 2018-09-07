@@ -1,4 +1,5 @@
-package com.frank.server;
+package com.frank.server3;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

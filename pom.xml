@@ -13,11 +13,14 @@
         <module>eurekaclienttest2</module>
         <module>eurekaclienttest</module>
         <module>eurekaserver</module>
+        <module>eurekaserver2</module>
+        <module>eurekaserver3</module>
         <module>gateway</module>
         <module>zuul</module>
         <module>rabbitMq</module>
         <module>config-server</module>
         <module>config-client</module>
+
     </modules>
 
     <repositories>
