@@ -17,7 +17,24 @@ eureka:
 
 
  #表示只要访问以/testZuul/开头的多层目录都可以路由到 id为eureka-client-test的服务上
+#
+#zuul:
+#  routes:
+#    eureka-client-test: /testZuul/**
 
+#
+#zuul:
+#  ignored-services: microservice-provider-user          # 需要忽视的服务(配置后将不会被路由)
+#  routes:
+#    movie:                                              # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
+#      path: /movie/**                                   # 想要映射到的路径
 zuul:
   routes:
-    eureka-client-test: /testZuul/**
+    api-a:
+      path: /test-a/** #   一个Map关系  key是url  value是serviceId  根据url找到serviceId  去访问对应的服务
+      service-id: localA
+    api-b:
+      path: /test-b/**
+      service-id: localB
+  ignored-services: 无视的serviceId 不做路由
+#      service-id: microservice-consumer-movie-ribbon-with-hystrix    # Eureka中的serviceId

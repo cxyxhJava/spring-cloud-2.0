@@ -21,6 +21,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>businessDemo</module>
+        <module>mongoDb</module>
 
     </modules>
 
