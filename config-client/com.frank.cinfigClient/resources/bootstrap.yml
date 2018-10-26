@@ -2,17 +2,42 @@ server:
   port: 9002
 spring:
   application:
-    name: @name@
+    name: @project.name@
   profiles:
-    active: @phase@
+    active: @package.environment@
   cloud:
     config:
-      name: @name@ #名字和配置文名对应   名字对应文件名
-      profile: @phase@  #对应-后面的环境名
-      uri: http://localhost:9001 #spring-cloud-config服务器地址
-      label: @phase@ #对应分支
-#例子   name = frankProjectName   profile = dev lable=master
-       #对应文件为  master分支下的  frankProjectName-dev.yml文件
+      name: @project.name@ #名字和配置文名对应   名字对应文件名
+      profile: @package.environment@  #对应-后面的环境名
+      uri:  #spring-cloud-config服务器地址
+      label: @package.environment@ #对应分支
+      #例子   name = frankProjectName   profile = dev lable=master
+      #对应文件为  master分支下的  frankProjectName-dev.yml文件
+
+#注意  configservice可以实时获取到对应的数据,客户端不可以  需要调用 /refresh接口刷新数据  注意是post请求
+
+
+#server:
+#  port: 9002
+#spring:
+#  application:
+#    name: @name@
+#  profiles:
+#    active: @phase@
+#  cloud:
+#    config:
+#      name: @name@ #名字和配置文名对应   名字对应文件名
+#      profile: @phase@  #对应-后面的环境名
+#      uri: http://localhost:9001 #spring-cloud-config服务器地址
+#      label: @phase@ #对应分支
+##例子   name = frankProjectName   profile = dev lable=master
+#       #对应文件为  master分支下的  frankProjectName-dev.yml文件
+#
+##注意  configservice可以实时获取到对应的数据,客户端不可以  需要调用 /refresh接口刷新数据  注意是post请求
+
+
+
+
 
 eureka:
   instance:
