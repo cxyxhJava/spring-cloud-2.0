@@ -1,30 +1,41 @@
 server:
   port: 8001
+
 spring:
   application:
     name: eureka-server
-#  security:
-#    basic:
-#      enabled: true # 启用身份认证
-#    user:
-#      name: admin # 定义用户名
-#      password: 123456 # 定义密码
+#  profiles: ${spring.application.name}
 
+##权限设置
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: SUPERUSER
+    basic:
+      enabled: true # 启用身份认证
+
+#eureka 设置
 eureka:
+  instance:
+    hostname: ${spring.application.name}
+    prefer-ip-address: true
   client:
     fetch-registry: false
     register-with-eureka: false
     serviceUrl:
-     defaultZone: http://eureka-server:8001/eureka
-    # defaultZone: http://eureka-server:8001/eureka/,http://eureka-server2:8002/eureka/,http://eureka-server3:8003/eureka/
-#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server3.port}/eureka/
+      #defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka-server2:8002,http://${spring.security.user.name}:${spring.security.user.password}@eureka-server3:8003
+     # defaultZone: http://@${eureka.instance.hostname}:${server.port}
+
+  server:  #配置属性，但由于 Eureka 自我保护模式以及心跳周期长的原因，经常会遇到 Eureka Server 不剔除已关停的节点的问题
+    enable-self-preservation: false # 关闭自我保护
+    eviction-interval-timer-in-ms: 5000 # 设置清理服务器时间 单位毫秒
+
+##日志设置
+#logging:
+#  level: INFO
+#  file: /logger.log #设置日志路径
 
 
-  instance:
-    hostname: ${spring.application.name}
-    prefer-ip-address: true
 
-#
-#  server3:  #配置属性，但由于 Eureka 自我保护模式以及心跳周期长的原因，经常会遇到 Eureka Server 不剔除已关停的节点的问题
-#    enable-self-preservation: false
-#    eviction-interval-timer-in-ms: 5000
