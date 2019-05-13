@@ -24,6 +24,8 @@
         <module>mongoDb</module>
         <module>webflux</module>
         <module>kafka-demo</module>
+        <module>eureka-service2</module>
+        <module>eureka-service3</module>
 
     </modules>
 
