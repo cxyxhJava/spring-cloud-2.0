@@ -26,6 +26,7 @@
         <module>kafka-demo</module>
         <module>eureka-service2</module>
         <module>eureka-service3</module>
+        <module>office</module>
 
     </modules>
 

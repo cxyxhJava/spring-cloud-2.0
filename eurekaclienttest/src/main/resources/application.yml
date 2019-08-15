@@ -14,7 +14,7 @@ eureka:
 #    prefer-ip-address: true #在注册中心不显示ip的地址前缀
   client:
     serviceUrl:
-      defaultZone:  http://eureka-server:8001/eureka/,http://eureka-server2:8002/eureka/,http://eureka-server3:8003/eureka/
-      #defaultZone: http://eureka-server:8001/eureka/,http://eureka-server2:8002/eureka/,http://eureka-server3:8003/eureka/
+      #defaultZone:  http://eureka-server:8001/eureka/,http://eureka-server2:8002/eureka/,http://eureka-server3:8003/eureka/
+      defaultZone: http://admin:admin@eureka-server:8001/eureka/,http://admin:admin@eureka-server2:8002/eureka/,http://admin:admin@eureka-server3:8003/eureka/
 
 

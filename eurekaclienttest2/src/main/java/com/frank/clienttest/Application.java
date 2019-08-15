@@ -23,4 +23,9 @@ public class Application {
     public String testZuul(){
         return "现在访问的端口是1号";
     }
+
+    @RequestMapping("/testServer")
+    public String testServer(){
+        return "测试服务注册";
+    }
 }
