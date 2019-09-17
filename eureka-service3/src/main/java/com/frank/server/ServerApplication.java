@@ -30,12 +30,12 @@ public class ServerApplication extends WebSecurityConfigurerAdapter {
 
     @Override
     protected UserDetailsService userDetailsService() {
-        User.UserBuilder builder = User.withDefaultPasswordEncoder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-
-        // 必须添加roles,否则报错
-        manager.createUser(builder.username("admin").password("admin").roles("USER").build());
-
+        manager.createUser(User
+                .withUsername("admin")
+                .password("admin")
+                .roles("USER")
+                .build());
         return manager;
     }
 }
