@@ -1,7 +1,7 @@
-package com.frank.clienttest.center.service;
+package com.frank.center.service;
 
-import com.frank.clienttest.center.dao.TestDao;
-import com.frank.clienttest.center.entity.TestEntity;
+import com.frank.center.dao.TestDao;
+import com.frank.center.entity.TestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

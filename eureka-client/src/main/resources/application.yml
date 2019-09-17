@@ -1,0 +1,13 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: eureka-client
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    hostname: eureka-client-test
+    prefer-ip-address: true #在注册中心不显示ip的地址前缀
+  client:
+    service-url:
+      defaultZone: http://admin:admin@eureka-server1:8001/eureka/,http://admin:admin@eureka-server2:8002/eureka/,http://admin:admin@eureka-server3:8003/eureka/

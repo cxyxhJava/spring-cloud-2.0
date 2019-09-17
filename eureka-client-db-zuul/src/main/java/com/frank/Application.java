@@ -1,7 +1,7 @@
-package com.frank.clienttest;
+package com.frank;
 
-import com.frank.clienttest.center.entity.TestEntity;
-import com.frank.clienttest.center.service.TestService;
+import com.frank.center.entity.TestEntity;
+import com.frank.center.service.TestService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

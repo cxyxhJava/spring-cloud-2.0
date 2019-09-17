@@ -10,11 +10,15 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>eurekaclienttest2</module>
-        <module>eurekaclienttest</module>
         <module>eureka-server</module>
         <module>eureka-server3</module>
         <module>eureka-server2</module>
+
+
+        <module>eureka-client-db-zuul</module>
+        <module>eureka-client2</module>
+
+
         <module>gateway</module>
         <module>zuul</module>
         <module>rabbitMq</module>
@@ -27,6 +31,7 @@
         <module>eureka-service3</module>
         <module>office</module>
         <module>snowflake</module>
+        <module>eureka-client</module>
 
     </modules>
 

@@ -1,8 +1,8 @@
 server:
-  port: 9003
+  port: 9002
 spring:
   application:
-    name: eureka-client-test
+    name: eureka-client2
 eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}

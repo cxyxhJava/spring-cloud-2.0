@@ -1,6 +1,6 @@
-package com.frank.clienttest.center.dao;
+package com.frank.center.dao;
 
-import com.frank.clienttest.center.entity.TestEntity;
+import com.frank.center.entity.TestEntity;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 

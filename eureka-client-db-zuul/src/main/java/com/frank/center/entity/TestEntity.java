@@ -1,4 +1,4 @@
-package com.frank.clienttest.center.entity;
+package com.frank.center.entity;
 
 
 import lombok.Data;
