@@ -32,6 +32,7 @@
         <module>office</module>
         <module>snowflake</module>
         <module>eureka-client</module>
+        <module>eureka-client-mybatis</module>
 
     </modules>
 
