@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: url
+    username: username
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true # 是否启用 flyway.
+    clean-disabled: true # 禁用clean，方式清除数据库
+    clean-on-validation-error: false # 验证错误时 是否自动清除数据库 高危操作！！！
+    baseline-on-migrate: false # 针对非空数据库是否默认调用基线版本
+    out-of-order: false # 是否允许乱序（out of order）迁移
+    #locations:  修改扫描路径 默认classpath:/db/migration
+
+ #   migration命名规则 默认值V 标识Versioned R表示Repeatable  双下划线+描述+后缀(默认.sql)
+
+
+ # eg V__Add_new_XXX.sql      R__Create_table_XXX.sql
+#
+#  flyway 提供命令行工具, 常用的命令包括:
+#  Clean: 删除所有创建的数据库对象, 包括用户、表、视图等. 注意不要在生产库上执行 clean 操作. 
+#  Migrate: 对数据库依次应用版本更改. 
+#  Info: 获取目前数据库的状态. 那些迁移已经完成, 那些迁移待完成. 所有迁移的执行时间以及结果. 
+#  Validate: 验证已 Apply 的脚本是否有变更, Flyway 的 Migration 默认先做 Validate. 
+#  Baseline: 根据现有的数据库结构生成一个基准迁移脚本. 
+#  Repair: 修复命令尽量不要使用, 修复场景有: 1. 移除失败的 migration 记录. 2.已经应用的 SQL 脚本被修改, 我们想重新应用该 SQL 脚本.

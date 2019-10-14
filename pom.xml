@@ -10,29 +10,34 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!--注册中心集群-->
         <module>eureka-server</module>
-        <module>eureka-server3</module>
-        <module>eureka-server2</module>
-
-
-        <module>eureka-client-db-zuul</module>
-        <module>eureka-client2</module>
-
-
-        <module>gateway</module>
-        <module>zuul</module>
-        <module>rabbitMq</module>
-        <module>config-server</module>
-        <module>config-client</module>
-        <module>mongoDb</module>
-        <module>webflux</module>
-        <module>kafka-demo</module>
         <module>eureka-service2</module>
         <module>eureka-service3</module>
-        <module>office</module>
-        <module>snowflake</module>
+        <!--客户端集群-->
         <module>eureka-client</module>
+        <module>eureka-client2</module>
+        <!--客户端整合mybaties-->
         <module>eureka-client-mybatis</module>
+        <!--配置文件中心服务和客户端-->
+        <module>config-server</module>
+        <module>config-client</module>
+        <module>flyway</module>
+
+
+        <!--<module>gateway</module>-->
+        <!--<module>zuul</module>-->
+        <!--<module>rabbitMq</module>-->
+
+        <!--<module>mongoDb</module>-->
+        <!--<module>webflux</module>-->
+        <!--<module>kafka-demo</module>-->
+        <!--<module>eureka-service2</module>-->
+        <!--<module>eureka-service3</module>-->
+        <!--<module>office</module>-->
+        <!--<module>snowflake</module>-->
+
+
 
     </modules>
 
@@ -109,11 +114,11 @@
     <!--公共依赖-->
     <dependencies>
 
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.0.10.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate.validator</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+            <!--<version>6.0.10.Final</version>-->
+        <!--</dependency>-->
         <!--配置中心-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.cloud</groupId>-->
