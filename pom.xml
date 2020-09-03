@@ -24,19 +24,18 @@
         <module>config-client</module>
         <module>flyway</module>
 
-
-        <!--<module>gateway</module>-->
-        <!--<module>zuul</module>-->
-        <!--<module>rabbitMq</module>-->
-
-        <!--<module>mongoDb</module>-->
-        <!--<module>webflux</module>-->
-        <!--<module>kafka-demo</module>-->
-        <!--<module>eureka-service2</module>-->
-        <!--<module>eureka-service3</module>-->
-        <!--<module>office</module>-->
-        <!--<module>snowflake</module>-->
-
+        <module>gateway</module>
+        <module>zuul</module>
+        <module>rabbitMq</module>
+        <module>mongoDb</module>
+        <module>webflux</module>
+        <module>kafka-demo</module>
+        <module>eureka-service2</module>
+        <module>eureka-service3</module>
+        <module>office</module>
+        <module>snowflake</module>
+        <module>ElasticSearch</module>
+        <module>RocketMQ</module>
 
 
     </modules>
