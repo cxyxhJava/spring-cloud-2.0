@@ -37,6 +37,9 @@
         <module>ElasticSearch</module>
         <module>RocketMQ</module>
 
+        <!--springBoot+txMybatisDemo-->
+        <module>txMybatis</module>
+
 
     </modules>
 

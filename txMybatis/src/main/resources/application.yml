@@ -1,0 +1,10 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: txMybatis-Demo
+  datasource:
+    url: dbUrl
+    username: username
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
