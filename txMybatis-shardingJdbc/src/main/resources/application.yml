@@ -1,0 +1,17 @@
+server:
+  port: 9001
+spring:
+
+  application:
+    name: txMybatis-Demo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    first:
+      password: Wekj2db_dev
+      url: jdbc:mysql://rm-bp1z81te81pnav7224o.mysql.rds.aliyuncs.com:3306/chat_log_dev?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&rewriteBatchedStatements=true&useSSL=true
+      username: wekj_dev
+    second:
+      password: Wekj2db_dev
+      url: jdbc:mysql://rm-bp1z81te81pnav7224o.mysql.rds.aliyuncs.com:3306/chat_log_dev?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&rewriteBatchedStatements=true&useSSL=true
+      username: wekj_dev
+

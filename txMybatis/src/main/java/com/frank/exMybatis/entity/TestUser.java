@@ -27,4 +27,24 @@ public class TestUser {
 
     private LocalDateTime time;
 
+
+
+    enum JAVA_CLOUME{
+        ID("id","id"),
+        NAME("name","name"),
+        ;
+        private String dbName;
+        private String cloumeName;
+
+
+        JAVA_CLOUME(){
+
+        }
+
+        JAVA_CLOUME(String dbName,String cloumeName){
+            this.dbName = dbName;
+            this.cloumeName = cloumeName;
+        }
+    }
+
 }

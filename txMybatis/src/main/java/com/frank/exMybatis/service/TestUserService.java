@@ -10,6 +10,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.util.Sqls;
 
 import java.util.List;
 
@@ -46,6 +48,21 @@ public class TestUserService {
         resp.setPageSize(pageInfo.getPageSize());
         resp.setTotalSize(pageInfo.getTotal());
         return resp;
+    }
+
+
+    public List<TestUser> findAllByUserName(String name){
+        return mapper.selectByExample(getExampleByName(name));
+    }
+
+
+
+    public Example getExampleByName(String name){
+        return Example.builder(TestUser.class)
+                .where(Sqls.custom()
+                        .andEqualTo("name",name)
+                )
+                .build();
     }
 
 

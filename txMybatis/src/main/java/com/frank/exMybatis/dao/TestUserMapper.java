@@ -11,4 +11,5 @@ import tk.mybatis.mapper.common.Mapper;
  */
 @Repository
 public interface TestUserMapper extends Mapper<TestUser>, InsertListMapper<TestUser> {
+
 }

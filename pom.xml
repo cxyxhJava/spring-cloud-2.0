@@ -39,6 +39,7 @@
 
         <!--springBoot+txMybatisDemo-->
         <module>txMybatis</module>
+        <module>txMybatis-shardingJdbc</module>
 
 
     </modules>
