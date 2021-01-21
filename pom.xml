@@ -40,6 +40,7 @@
         <!--springBoot+txMybatisDemo-->
         <module>txMybatis</module>
         <module>txMybatis-shardingJdbc</module>
+        <module>redission-qiuck</module>
 
 
     </modules>
